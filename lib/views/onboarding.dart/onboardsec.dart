@@ -41,7 +41,7 @@ class OnboardingScreenSec extends StatelessWidget {
                 const SizedBox(height: 16),
 
                 // Home District Logo
-                Image.asset(AllImages.ob3, height: 150),
+                Image.asset(AllImages.ob4, height: 150),
                 const SizedBox(height: 24),
 
                 // Page Indicator
@@ -96,7 +96,7 @@ class OnboardingScreenSec extends StatelessWidget {
                   buttonWidth: 200,
                   text: "Next",
                   onPressed: () {
-                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginPages()));
+                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  LoginPages()));
                   },
                   backgroundColor: AppColors.elveatedbackgroundColor,
                   textColor: AppPallete.whiteColor,

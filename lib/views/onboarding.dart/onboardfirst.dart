@@ -25,7 +25,7 @@ class OnboardingScreenfirst extends StatelessWidget {
                     Image.asset(AllImages.logo, height: 40),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginPages()));
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  LoginPages()));
                       },
                       child: Text(
                         'Skip',

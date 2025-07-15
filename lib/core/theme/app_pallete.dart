@@ -18,6 +18,10 @@ class AppPallete {
 class AppColors {
   AppColors._();
 
+
+  // login page color
+
+  static const Color loginPageTopColor = Color(0xFF40DAE5);
   // App basic colors
   static const Color orangeColor = Colors.orange;
   // static const Color primaryColor = Color(0xFFd90000);
