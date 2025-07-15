@@ -21,46 +21,34 @@ class _PasswordInputState extends State<PasswordInput> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      decoration: BoxDecoration(
-        color: AppColors.lightContainer,
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: AppColors.darkerGrey, width: 1),
-      ),
-      child: Row(
-        children: [
-          const Icon(Icons.lock_outline, size: 20, color: AppColors.darkerGrey),
-          const SizedBox(width: 9),
-          Container(width: 1, height: 20, color: AppColors.darkerGrey),
-          const SizedBox(width: 9),
-          Expanded(
-            child: TextFormField(
-              controller: widget.controller,
-              obscureText: _obscureText,
-              validator: AppValidator.validatePassword,
-              decoration: InputDecoration(
-                hintText: 'Password',
-                hintStyle: const TextStyle(color: AppColors.darkerGrey),
-                border: InputBorder.none,
-                isCollapsed: true,
-                 contentPadding:  EdgeInsets.only(top:10), 
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    _obscureText ? Icons.visibility_off : Icons.visibility,
-                    size: 20,
-                    color: AppColors.darkerGrey,
-                  ),
-                  onPressed: _toggleVisibility,
-                ),
-              ),
-              style: const TextStyle(fontSize: 16),
-              keyboardType: TextInputType.visiblePassword,
-            ),
+    return TextFormField(
+      controller: widget.controller,
+      obscureText: _obscureText,
+      validator: AppValidator.validatePassword,
+      decoration: InputDecoration(
+        filled: true,
+        fillColor: AppColors.lightContainer,
+        hintText: 'Password',
+        hintStyle: const TextStyle(color: AppColors.darkerGrey),
+        prefixIcon: const Icon(Icons.lock_outline, color: AppColors.darkerGrey),
+        suffixIcon: IconButton(
+          icon: Icon(
+            _obscureText ? Icons.visibility_off : Icons.visibility,
+            color: AppColors.darkerGrey,
           ),
-        ],
+          onPressed: _toggleVisibility,
+        ),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 12,
+          vertical: 14,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: AppColors.darkerGrey),
+        ),
+        errorStyle: const TextStyle(fontSize: 12, color: Colors.red),
       ),
+      style: const TextStyle(fontSize: 16),
     );
   }
 }

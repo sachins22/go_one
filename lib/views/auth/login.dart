@@ -104,7 +104,7 @@ class _LoginPagesState extends State<LoginPages> {
                           //     builder: (context) => const BottomNavigationPages(),
                           //   ));
                           // }
-                              Navigator.pushReplacement(context, MaterialPageRoute(
+                              Navigator.push(context, MaterialPageRoute(
                               builder: (context) => const BottomNavigationPages(),
                             ));
                         },

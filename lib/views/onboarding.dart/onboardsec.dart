@@ -25,7 +25,7 @@ class OnboardingScreenSec extends StatelessWidget {
                     Image.asset(AllImages.logo, height: 40),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const OnboardingScreenfirst()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const OnboardingScreenfirst()));
                       },
                       child: Text(
                         'Skip',
@@ -38,11 +38,11 @@ class OnboardingScreenSec extends StatelessWidget {
 
                 // Main Image
                 Image.asset(AllImages.ob3, height: 250),
-                const SizedBox(height: 16),
+                const SizedBox(height: 10),
 
                 // Home District Logo
-                Image.asset(AllImages.ob4, height: 150),
-                const SizedBox(height: 24),
+                Image.asset(AllImages.ob4, height: 80),
+                const SizedBox(height: 10),
 
                 // Page Indicator
                 Row(
@@ -82,7 +82,7 @@ class OnboardingScreenSec extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: Text("Yes! Your Career is in Good Hands dealing in For Domestic, Commercial, Foods and Ride Services." ,style:  TextStyle(
-                        fontSize: 25,
+                        fontSize: 18,
                         fontWeight: FontWeight.w400,
                         color: AppColors.black,
                       ),),
@@ -96,7 +96,7 @@ class OnboardingScreenSec extends StatelessWidget {
                   buttonWidth: 200,
                   text: "Next",
                   onPressed: () {
-                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  LoginPages()));
+                     Navigator.push(context, MaterialPageRoute(builder: (context) =>  LoginPages()));
                   },
                   backgroundColor: AppColors.elveatedbackgroundColor,
                   textColor: AppPallete.whiteColor,

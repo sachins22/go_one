@@ -25,7 +25,7 @@ class OnboardingScreenfirst extends StatelessWidget {
                     Image.asset(AllImages.logo, height: 40),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  LoginPages()));
+                        Navigator.push(context, MaterialPageRoute(builder: (context) =>  LoginPages()));
                       },
                       child: Text(
                         'Skip',
@@ -38,11 +38,11 @@ class OnboardingScreenfirst extends StatelessWidget {
 
                 // Main Image
                 Image.asset(AllImages.ob1, height: 250),
-                const SizedBox(height: 16),
+                const SizedBox(height: 10),
 
                 // Home District Logo
-                Image.asset(AllImages.ob2, height: 150),
-                const SizedBox(height: 24),
+                Image.asset(AllImages.ob2, height: 80),
+                const SizedBox(height: 10),
 
                 // Page Indicator
                 Row(
@@ -140,7 +140,7 @@ class OnboardingScreenfirst extends StatelessWidget {
                   buttonWidth: 200,
                   text: "Next",
                   onPressed: () {
-                     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const OnboardingScreenSec()));
+                     Navigator.push(context, MaterialPageRoute(builder: (context) => const OnboardingScreenSec()));
                   },
                   backgroundColor: AppColors.elveatedbackgroundColor,
                   textColor: AppPallete.whiteColor,
