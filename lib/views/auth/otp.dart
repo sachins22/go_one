@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:go_one_app/core/All_Image/allImage.dart';
 import 'package:go_one_app/core/custom_widgets/elevated_button.dart';
-import 'package:go_one_app/core/custom_widgets/email_input.dart';
-import 'package:go_one_app/core/custom_widgets/password_input.dart';
 import 'package:go_one_app/core/theme/app_pallete.dart';
-import 'package:go_one_app/views/auth/otp.dart';
 import 'package:go_one_app/views/bottom_Navigation/bottomNavigation.dart';
 
-class LoginPages extends StatefulWidget {
-  const LoginPages({super.key});
+class OtpVerificationPage extends StatefulWidget {
+  const OtpVerificationPage({super.key});
 
   @override
-  State<LoginPages> createState() => _LoginPagesState();
+  State<OtpVerificationPage> createState() => _OtpVerificationPageState();
 }
 
-class _LoginPagesState extends State<LoginPages> {
+class _OtpVerificationPageState extends State<OtpVerificationPage> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final List<TextEditingController> otpControllers = List.generate(4, (_) => TextEditingController());
 
   @override
   Widget build(BuildContext context) {
@@ -56,71 +53,68 @@ class _LoginPagesState extends State<LoginPages> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
-                        "If you are a GoOne distribution partner then this is for you.",
-                        style: TextStyle(fontSize: 14),
-                      ),
-                      const SizedBox(height: 20),
-                      const Text(
-                        "Login",
+                        "OTP Verification",
                         style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 8),
                       const Text(
-                        "Please fill in the following form to continue",
+                        "Enter the OTP sent to your Email",
                         style: TextStyle(fontSize: 14, color: AppColors.darkGrey),
                       ),
                       const SizedBox(height: 20),
 
-                      // ✅ Clean Inputs
-                      EmailInput(controller: emailController),
-                      const SizedBox(height: 20),
-                      PasswordInput(controller: passwordController),
+                  
 
-                      const SizedBox(height: 10),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: TextButton(
-                          onPressed: () {},
-                          child: const Text(
-                            "Forgot password?",
-                            style: TextStyle(color: AppColors.black, fontSize: 14),
-                          ),
-                        ),
+                      // OTP Input
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: List.generate(4, (index) {
+                          return SizedBox(
+                            width: 60,
+                            child: TextFormField(
+                              controller: otpControllers[index],
+                              keyboardType: TextInputType.number,
+                              textAlign: TextAlign.center,
+                              maxLength: 1,
+                              decoration: const InputDecoration(
+                                counterText: "",
+                                border: OutlineInputBorder(),
+                              ),
+                              onChanged: (val) {
+                                if (val.isNotEmpty && index < 3) {
+                                  FocusScope.of(context).nextFocus();
+                                }
+                              },
+                            ),
+                          );
+                        }),
                       ),
-                      const SizedBox(height: 10),
+
+                      const SizedBox(height: 60),
 
                       AppElevatedButton(
                         backgroundColor: AppColors.elveatedbackgroundColor,
                         textColor: AppColors.textWhite,
-                        text: "Proceed",
+                        text: "Verify OTP",
                         buttonWidth: 300,
-                        buttonHeight: 60,
+                        buttonHeight: 50,
                         onPressed: () {
                           // if (_formKey.currentState!.validate()) {
-                          //   // ✅ Form is valid
-                          //   debugPrint("Email: ${emailController.text}");
-                          //   debugPrint("Password: ${passwordController.text}");
-                          //   // Navigate to the next page or perform login action
-                          //   Navigator.pushReplacement(context, MaterialPageRoute(
-                          //     builder: (context) => const BottomNavigationPages(),
-                          //   ));
+                          //   String otp = otpControllers.map((e) => e.text).join();
+                          //   if (otp.length == 4) {
+                          //     Navigator.push(context, MaterialPageRoute(
+                          //       builder: (context) => const BottomNavigationPages(),
+                          //     ));
+                          //   } else {
+                          //     ScaffoldMessenger.of(context).showSnackBar(
+                          //       const SnackBar(content: Text("Enter full 4-digit OTP")),
+                          //     );
+                          //   }
                           // }
-                              Navigator.push(context, MaterialPageRoute(
-                              builder: (context) => const OtpVerificationPage(),
-                            ));
+                           Navigator.push(context, MaterialPageRoute(
+                                builder: (context) => const BottomNavigationPages(),
+                              ));
                         },
-                      ),
-                      const SizedBox(height: 10),
-                      const Center(child: Text("By email for Forgot Password")),
-                      const SizedBox(height: 10),
-
-                      AppElevatedButton(
-                        backgroundColor: AppColors.darkGrey,
-                        textColor: AppColors.textWhite,
-                        text: "Proceed via OTP",
-                        buttonWidth: 300,
-                        buttonHeight: 60,
-                        onPressed: () {},
                       ),
                     ],
                   ),
@@ -134,18 +128,15 @@ class _LoginPagesState extends State<LoginPages> {
   }
 }
 
-// Custom Clipper for wave background
+// WaveClipper remains the same
 class WaveClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     Path path = Path();
     path.lineTo(0, size.height - 60);
 
-    // First curve (left hump)
     var firstControlPoint = Offset(size.width * 0.25, size.height);
     var firstEndPoint = Offset(size.width * 0.5, size.height - 40);
-
-    // Second curve (right hump)
     var secondControlPoint = Offset(size.width * 0.75, size.height - 80);
     var secondEndPoint = Offset(size.width, size.height - 40);
 
@@ -155,14 +146,12 @@ class WaveClipper extends CustomClipper<Path> {
       firstEndPoint.dx,
       firstEndPoint.dy,
     );
-
     path.quadraticBezierTo(
       secondControlPoint.dx,
       secondControlPoint.dy,
       secondEndPoint.dx,
       secondEndPoint.dy,
     );
-
     path.lineTo(size.width, 0);
     path.close();
     return path;

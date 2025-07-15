@@ -24,6 +24,9 @@ class AppColors {
   static const Color loginPageTopColor = Color(0xFF40DAE5);
   // App basic colors
   static const Color orangeColor = Colors.orange;
+  static const Color lightBlue = Color(0xFFB2EBF2);
+  static const Color darkblue = Colors.blueAccent;
+  static const Color whiteColor = Colors.white;
   // static const Color primaryColor = Color(0xFFd90000);
   static const Color primaryColor = Colors.redAccent;
   static const Color iconColor = Colors.redAccent;

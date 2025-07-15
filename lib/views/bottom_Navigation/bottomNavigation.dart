@@ -18,7 +18,7 @@ class _BottomNavigationPagesState extends State<BottomNavigationPages> {
   int selectedIndex = 0;
 
   final List<Widget> _pages = [
-    const HomePages(),
+         HomePages(),
     const OrderPages(),
     const DepositPages(),
     const AccountPage(),
@@ -27,6 +27,7 @@ class _BottomNavigationPagesState extends State<BottomNavigationPages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppPallete.backgroundColor,
       body: _pages[selectedIndex],
       bottomNavigationBar: Container(
         margin: const EdgeInsets.only(left: 16, right: 16, bottom: 12),
