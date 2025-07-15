@@ -54,36 +54,48 @@ class _BottomNavigationPagesState extends State<BottomNavigationPages> {
                 selectedIndex = index;
               });
             },
-            items:  [
+            items: [
               BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   AllImages.profile,
                   width: 24,
                   height: 24,
+                  color: selectedIndex == 0
+                      ? AppColors.loginPageTopColor
+                      : AppColors.black,
                 ),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                  icon: SvgPicture.asset(
+                icon: SvgPicture.asset(
                   AllImages.order,
                   width: 24,
                   height: 24,
+                  color: selectedIndex == 1
+                      ? AppColors.loginPageTopColor
+                      : AppColors.black,
                 ),
                 label: 'Order',
               ),
               BottomNavigationBarItem(
-                 icon: SvgPicture.asset(
+                icon: SvgPicture.asset(
                   AllImages.cash,
                   width: 24,
                   height: 24,
+                  color: selectedIndex == 2
+                      ? AppColors.loginPageTopColor
+                      : AppColors.black,
                 ),
                 label: 'Deposit',
               ),
               BottomNavigationBarItem(
-                 icon: SvgPicture.asset(
+                icon: SvgPicture.asset(
                   AllImages.account,
                   width: 24,
                   height: 24,
+                  color: selectedIndex == 3
+                      ? AppColors.loginPageTopColor
+                      : AppColors.black,
                 ),
                 label: 'Account',
               ),
