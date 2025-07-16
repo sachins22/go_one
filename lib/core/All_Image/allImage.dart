@@ -12,5 +12,6 @@ class AllImages {
   static const String account = 'assets/images/account.svg';
   static const String user = 'assets/images/user.png';
   static const String foodIcon = 'assets/images/food.png';
+  static const String MapCon = 'assets/images/map-view.png';
 
 }

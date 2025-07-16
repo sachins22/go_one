@@ -38,6 +38,10 @@ class _OrderPagesState extends State<OrderPages> {
               const SizedBox(height: 20),
               _buildActiveOrders(),
             ],
+            if (selectedIndex == 2) ...[
+              _buildMapView(),
+               const SizedBox(height: 20),
+            ],
           ],
         ),
       ),
@@ -692,4 +696,120 @@ class _OrderPagesState extends State<OrderPages> {
       ),
     );
   }
+
+ Widget _buildMapView() {
+    // Placeholder for map view
+   
+    return Container(
+      height: 350,
+      margin: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: Colors.grey[300],
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 6,
+            offset: Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Stack(
+        children: [
+          // 🔁 Replace with your image (local or network)
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.asset(
+              AllImages.MapCon, // ✅ Your image path here
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
+            ),
+          ),
+
+          // 📦 Bottom card
+          Positioned(
+            bottom: 12,
+            left: 12,
+            right: 12,
+            child: Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.amber[100],
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // 📍 Location row
+                  Row(
+                    children: [
+                      Icon(Icons.location_on, color: Colors.red),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: Text(
+                          "#321, Phase-II, UE, Ludhiana, India...",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  // 🔢 Orders and Distance
+                  Row(
+                    children: [
+                      _buildInfoBox("4", "Active Orders"),
+                      const SizedBox(width: 10),
+                      _buildInfoBox("12.5 km", "Total Distance"),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildInfoBox(String value, String label) {
+    return Expanded(
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 12),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          children: [
+            Text(
+              value,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+            const SizedBox(height: 4),
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 12,
+                color: Colors.black54,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
 }
+
+  
+
+
