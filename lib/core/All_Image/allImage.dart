@@ -11,5 +11,6 @@ class AllImages {
   static const String cash = 'assets/images/cash.svg';
   static const String account = 'assets/images/account.svg';
   static const String user = 'assets/images/user.png';
+  static const String foodIcon = 'assets/images/food.png';
 
 }

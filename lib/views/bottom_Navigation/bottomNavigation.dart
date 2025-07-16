@@ -21,7 +21,7 @@ class _BottomNavigationPagesState extends State<BottomNavigationPages> {
          HomePages(),
     const OrderPages(),
     const DepositPages(),
-    const AccountPage(),
+    const AccountPages(),
   ];
 
   @override

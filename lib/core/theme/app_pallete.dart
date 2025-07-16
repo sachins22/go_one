@@ -21,7 +21,9 @@ class AppColors {
 
   // login page color
 
+  static const Color tealColors = Colors.teal;
   static const Color loginPageTopColor = Color(0xFF40DAE5);
+  static const Color NeworderButtonColor =  Color(0xFFD2E8EB);
   // App basic colors
   static const Color orangeColor = Colors.orange;
   static const Color lightBlue = Color(0xFFB2EBF2);

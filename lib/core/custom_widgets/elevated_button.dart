@@ -43,7 +43,7 @@ class AppElevatedButton extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18,
                   color: textColor,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
       ),
