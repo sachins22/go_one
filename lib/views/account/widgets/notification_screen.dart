@@ -31,7 +31,7 @@ class NotificationScreen extends StatelessWidget {
           onPressed: () => Navigator.of(context).pop(),
         ),
         backgroundColor:AppPallete.backgroundColor,
-        foregroundColor: Colors.black,
+        foregroundColor: AppColors .black,
         elevation: 0,
       ),
       body: ListView.builder(

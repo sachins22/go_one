@@ -4,6 +4,7 @@ import 'package:go_one_app/core/theme/app_pallete.dart';
 import 'package:go_one_app/views/account/widgets/language_selection_screen.dart';
 import 'package:go_one_app/views/account/widgets/locality_selection_screen.dart';
 import 'package:go_one_app/views/account/widgets/notification_screen.dart';
+import 'package:go_one_app/views/account/widgets/rating.dart';
 
 import '../../core/custom_widgets/custome_card.dart';
 
@@ -23,7 +24,12 @@ class AccountPages extends StatelessWidget {
               // Ratings Card
               CustomCard(
                 onPressed: () {
-                  // Define your action here
+                 Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>  RatingScreen(),
+                    ),
+                  );
                 },
                 widthCard: MediaQuery.of(context).size.width * 0.9,
                 heightCard: 100,

@@ -13,5 +13,8 @@ class AllImages {
   static const String user = 'assets/images/user.png';
   static const String foodIcon = 'assets/images/food.png';
   static const String MapCon = 'assets/images/map-view.png';
+  static const String GooglePay = 'assets/images/googlePay.png';
+  static const String debitCard = 'assets/images/debitcard.svg';
+  static const String NetBanking = 'assets/images/net-banking.svg';
 
 }
