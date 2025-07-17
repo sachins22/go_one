@@ -3,7 +3,6 @@ import 'package:go_one_app/core/All_Image/allImage.dart';
 import 'package:go_one_app/core/custom_widgets/elevated_button.dart';
 import 'package:go_one_app/core/theme/app_pallete.dart';
 
-
 class OrderPages extends StatefulWidget {
   const OrderPages({super.key});
 
@@ -20,6 +19,41 @@ class _OrderPagesState extends State<OrderPages> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppPallete.backgroundColor,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: AppColors.loginPageTopColor,
+        elevation: 0,
+        title: Row(
+          children: [
+            Image.asset(AllImages.logo, height: 40),
+            const Spacer(),
+            Stack(
+              children: [
+                const Icon(
+                  Icons.notifications_none,
+                  color: AppColors.whiteColor,
+                  size: 28,
+                ),
+                Positioned(
+                  right: 0,
+                  top: 0,
+                  child: CircleAvatar(
+                    radius: 8,
+                    backgroundColor: AppColors.buttonPrimary,
+                    child: const Text(
+                      "2",
+                      style: TextStyle(
+                        color: AppColors.whiteColor,
+                        fontSize: 10,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +74,7 @@ class _OrderPagesState extends State<OrderPages> {
             ],
             if (selectedIndex == 2) ...[
               _buildMapView(),
-               const SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ],
         ),
@@ -53,45 +87,12 @@ class _OrderPagesState extends State<OrderPages> {
       clipBehavior: Clip.none,
       children: [
         Container(
-          height: 180,
+          height: 130, // Reduced height since AppBar is used now
           decoration: const BoxDecoration(
             color: AppColors.loginPageTopColor,
             borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(30),
               bottomRight: Radius.circular(30),
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Row(
-              children: [
-                Image.asset(AllImages.logo, height: 40),
-                const Spacer(),
-                Stack(
-                  children: [
-                    const Icon(
-                      Icons.notifications_none,
-                      color: AppColors.whiteColor,
-                      size: 28,
-                    ),
-                    Positioned(
-                      right: 0,
-                      top: 0,
-                      child: CircleAvatar(
-                        radius: 8,
-                        backgroundColor: AppColors.buttonPrimary,
-                        child: const Text(
-                          "2",
-                          style: TextStyle(
-                            color: AppColors.whiteColor,
-                            fontSize: 10,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
             ),
           ),
         ),
@@ -697,9 +698,9 @@ class _OrderPagesState extends State<OrderPages> {
     );
   }
 
- Widget _buildMapView() {
+  Widget _buildMapView() {
     // Placeholder for map view
-   
+
     return Container(
       height: 350,
       margin: const EdgeInsets.all(16),
@@ -707,11 +708,7 @@ class _OrderPagesState extends State<OrderPages> {
         borderRadius: BorderRadius.circular(12),
         color: Colors.grey[300],
         boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 6,
-            offset: Offset(0, 4),
-          ),
+          BoxShadow(color: Colors.black12, blurRadius: 6, offset: Offset(0, 4)),
         ],
       ),
       child: Stack(
@@ -768,7 +765,6 @@ class _OrderPagesState extends State<OrderPages> {
                     ],
                   ),
                   const SizedBox(height: 20),
-
                 ],
               ),
             ),
@@ -790,26 +786,16 @@ class _OrderPagesState extends State<OrderPages> {
           children: [
             Text(
               value,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
-              ),
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
             ),
             const SizedBox(height: 4),
             Text(
               label,
-              style: const TextStyle(
-                fontSize: 12,
-                color: Colors.black54,
-              ),
-            )
+              style: const TextStyle(fontSize: 12, color: Colors.black54),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-  
-
-

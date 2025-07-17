@@ -20,116 +20,120 @@ class _HomePagesState extends State<HomePages> {
   final List<String> tabTitles = ['Profile Stats', 'Range', 'Link Bank Account'];
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppPallete.backgroundColor,
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildTopSection(),
-            const SizedBox(height: 60),
-            _buildTabs(),
-            const SizedBox(height: 20),
-            if (selectedIndex == 0) ...[
-              _buildStatsCard(),
-              const SizedBox(height: 20),
-              _buildChartFilters(),
-              const SizedBox(height: 20),
-              _buildBarChart(),
-            ] else if (selectedIndex == 1) ...[
-              _buildRangeWidget(),
+Widget build(BuildContext context) {
+  return Scaffold(
+    backgroundColor: AppPallete.backgroundColor,
+    appBar: AppBar(
+      automaticallyImplyLeading: false,
+      backgroundColor: AppColors.loginPageTopColor,
+      elevation: 0,
+      title: Row(
+        children: [
+          Image.asset(AllImages.logo, height: 40),
+          const Spacer(),
+          Stack(
+            children: [
+              const Icon(Icons.notifications_none,
+                  color: AppColors.whiteColor, size: 28),
+              Positioned(
+                right: 0,
+                top: 0,
+                child: CircleAvatar(
+                  radius: 8,
+                  backgroundColor: AppColors.buttonPrimary,
+                  child: const Text(
+                    "2",
+                    style: TextStyle(
+                        color: AppColors.whiteColor, fontSize: 10),
+                  ),
+                ),
+              ),
             ],
-            const SizedBox(height: 24),
-          ],
-        ),
+          ),
+        ],
       ),
-    );
-  }
+    ),
+    body: SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          _buildTopSection(),
+          const SizedBox(height: 60),
+          _buildTabs(),
+          const SizedBox(height: 20),
+          if (selectedIndex == 0) ...[
+            _buildStatsCard(),
+            const SizedBox(height: 20),
+            _buildChartFilters(),
+            const SizedBox(height: 20),
+            _buildBarChart(),
+          ] else if (selectedIndex == 1) ...[
+            _buildRangeWidget(),
+          ],
+          const SizedBox(height: 24),
+        ],
+      ),
+    ),
+  );
+}
 
   Widget _buildTopSection() {
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        Container(
-          height: 180,
-          decoration: const BoxDecoration(
-            color: AppColors.loginPageTopColor,
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(30),
-              bottomRight: Radius.circular(30),
-            ),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            child: Row(
-              children: [
-                Image.asset(AllImages.logo, height: 40),
-                const Spacer(),
-                Stack(
-                  children: [
-                    const Icon(Icons.notifications_none,
-                        color: AppColors.whiteColor, size: 28),
-                    Positioned(
-                      right: 0,
-                      top: 0,
-                      child: CircleAvatar(
-                        radius: 8,
-                        backgroundColor: AppColors.buttonPrimary,
-                        child: const Text(
-                          "2",
-                          style: TextStyle(
-                              color: AppColors.whiteColor, fontSize: 10),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+  return Stack(
+    clipBehavior: Clip.none,
+    children: [
+      Container(
+        height: 130, // Reduced height since AppBar is used now
+        decoration: const BoxDecoration(
+          color: AppColors.loginPageTopColor,
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(30),
+            bottomRight: Radius.circular(30),
           ),
         ),
-        Positioned(
-          bottom: -40,
-          left: 20,
-          right: 20,
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            decoration: BoxDecoration(
-              color: AppColors.whiteColor,
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: const [
-                BoxShadow(
-                    color: AppColors.black,
-                    blurRadius: 6,
-                    offset: Offset(0, 4)),
-              ],
-            ),
-            child: Row(
-              children: [
-                const CircleAvatar(
-                  radius: 28,
-                  backgroundImage: AssetImage(AllImages.user),
-                ),
-                const SizedBox(width: 12),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text("Welcome John!",
-                        style: TextStyle(fontWeight: FontWeight.bold)),
-                    SizedBox(height: 4),
-                    Text("Edit Profile",
-                        style: TextStyle(
-                            color: AppColors.elveatedbackgroundColor)),
-                  ],
-                ),
-              ],
-            ),
+      ),
+      Positioned(
+        bottom: -40,
+        left: 20,
+        right: 20,
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          decoration: BoxDecoration(
+            color: AppColors.whiteColor,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: const [
+              BoxShadow(
+                color: AppColors.black,
+                blurRadius: 6,
+                offset: Offset(0, 4),
+              ),
+            ],
+          ),
+          child: Row(
+            children: [
+              const CircleAvatar(
+                radius: 28,
+                backgroundImage: AssetImage(AllImages.user),
+              ),
+              const SizedBox(width: 12),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const [
+                  Text("Welcome John!",
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  SizedBox(height: 4),
+                  Text("Edit Profile",
+                      style: TextStyle(
+                          color: AppColors.elveatedbackgroundColor)),
+                ],
+              ),
+            ],
           ),
         ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
+}
+
 
   Widget _buildTabs() {
     return Padding(
