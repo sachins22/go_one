@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:go_one_app/core/All_Image/allImage.dart';
 import 'package:go_one_app/core/theme/app_pallete.dart';
+import 'package:go_one_app/views/notification/notification_main.dart';
 import 'package:percent_indicator/percent_indicator.dart'; // Add this in pubspec.yaml
 
 
@@ -31,24 +32,34 @@ Widget build(BuildContext context) {
         children: [
           Image.asset(AllImages.logo, height: 40),
           const Spacer(),
-          Stack(
-            children: [
-              const Icon(Icons.notifications_none,
-                  color: AppColors.whiteColor, size: 28),
-              Positioned(
-                right: 0,
-                top: 0,
-                child: CircleAvatar(
-                  radius: 8,
-                  backgroundColor: AppColors.buttonPrimary,
-                  child: const Text(
-                    "2",
-                    style: TextStyle(
-                        color: AppColors.whiteColor, fontSize: 10),
+          InkWell(
+            onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NotificationMainScreen(),
+                  ),
+                );
+              },
+            child: Stack(
+              children: [
+                const Icon(Icons.notifications_none,
+                    color: AppColors.whiteColor, size: 28),
+                Positioned(
+                  right: 0,
+                  top: 0,
+                  child: CircleAvatar(
+                    radius: 8,
+                    backgroundColor: AppColors.buttonPrimary,
+                    child: const Text(
+                      "2",
+                      style: TextStyle(
+                          color: AppColors.whiteColor, fontSize: 10),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

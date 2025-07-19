@@ -7,37 +7,37 @@ class TransactionsScreen extends StatelessWidget {
     {
       'title': 'GoOne Wallet',
       'date': '19 January, 2019',
-      'amount': '\$125',
+      'amount': '₹125',
       'status': 'Successful',
     },
     {
       'title': 'Payout Deduction',
       'date': '20 January, 2019',
-      'amount': '\$1215',
+      'amount': '₹1215',
       'status': 'Successful',
     },
     {
       'title': 'GoOne Wallet',
       'date': '19 January, 2019',
-      'amount': '\$125',
+      'amount': '₹125',
       'status': 'Successful',
     },
     {
       'title': 'Payout Deduction',
       'date': '20 January, 2019',
-      'amount': '\$1215',
+      'amount': '₹1215',
       'status': 'Successful',
     },
     {
       'title': 'GoOne Wallet',
       'date': '19 January, 2019',
-      'amount': '\$125',
+      'amount': '₹125',
       'status': 'Successful',
     },
     {
       'title': 'Payout Deduction',
       'date': '20 January, 2019',
-      'amount': '\$1215',
+      'amount': '₹1215',
       'status': 'Successful',
     },
   ];
@@ -45,14 +45,17 @@ class TransactionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     backgroundColor: AppPallete.backgroundColor,
+      backgroundColor: AppPallete.backgroundColor,
       appBar: AppBar(
-        leading: BackButton(color: AppColors.black),
+        leading: IconButton(
+          onPressed: () => Navigator.of(context).pop(),
+          icon: Icon(Icons.arrow_back_ios_new_rounded),
+        ),
         title: Text('Transactions', style: TextStyle(color: AppColors.black)),
         backgroundColor: AppPallete.backgroundColor,
         elevation: 0,
       ),
-     
+
       body: Column(
         children: [
           Expanded(
@@ -121,7 +124,10 @@ class TransactionsScreen extends StatelessWidget {
                             SizedBox(height: 4),
                             Text(
                               tx['status']!,
-                              style: TextStyle(color: AppColors.redColors, fontSize: 12),
+                              style: TextStyle(
+                                color: AppColors.redColors,
+                                fontSize: 12,
+                              ),
                             ),
                           ],
                         ),
@@ -144,11 +150,17 @@ class TransactionsScreen extends StatelessWidget {
               children: const [
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text("«Prev", style: TextStyle(color: AppColors.darkGrey)),
+                  child: Text(
+                    "«Prev",
+                    style: TextStyle(color: AppColors.darkGrey),
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text("Next»", style: TextStyle(color: AppColors.black)),
+                  child: Text(
+                    "Next»",
+                    style: TextStyle(color: AppColors.black),
+                  ),
                 ),
               ],
             ),

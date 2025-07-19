@@ -38,28 +38,47 @@ class TransactionDetailScreen extends StatelessWidget {
               // Custom AppBar
               SafeArea(
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
                   child: Row(
                     children: [
-                      const BackButton(color: AppColors.black),
+                      IconButton(
+                        onPressed: () => Navigator.of(context).pop(),
+                        icon: Icon(Icons.arrow_back_ios_new_rounded),
+                      ),
                       const SizedBox(width: 8),
                       const Text(
                         "Transaction Detail",
-                        style: TextStyle(color: AppColors.black, fontSize: 18, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          color: AppColors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
                 ),
               ),
-                const SizedBox(height: 50),
+              const SizedBox(height: 50),
               // Transaction ID
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text("Transaction Id", style: TextStyle(color: AppColors.black)),
-                    Text(id, style: const TextStyle(fontWeight: FontWeight.w500)),
+                    const Text(
+                      "Transaction Id",
+                      style: TextStyle(color: AppColors.black),
+                    ),
+                    Text(
+                      id,
+                      style: const TextStyle(fontWeight: FontWeight.w500),
+                    ),
                   ],
                 ),
               ),
@@ -74,7 +93,9 @@ class TransactionDetailScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: AppColors.whiteColor,
                     borderRadius: BorderRadius.circular(16),
-                    boxShadow: [BoxShadow(color: AppColors.darkGrey, blurRadius: 6)],
+                    boxShadow: [
+                      BoxShadow(color: AppColors.darkGrey, blurRadius: 6),
+                    ],
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,33 +106,63 @@ class TransactionDetailScreen extends StatelessWidget {
                         children: [
                           Text(
                             "$amount INR",
-                            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
-                          const Text("Razor Pay", style: TextStyle(color: AppColors.redColors)),
+                          const Text(
+                            "Razor Pay",
+                            style: TextStyle(color: AppColors.redColors),
+                          ),
                         ],
                       ),
                       const Divider(height: 30),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Text("Type", style: TextStyle(color: AppColors.black)),
-                          const Text("Status", style: TextStyle(color:AppColors.black)),
+                          const Text(
+                            "Type",
+                            style: TextStyle(color: AppColors.black),
+                          ),
+                          const Text(
+                            "Status",
+                            style: TextStyle(color: AppColors.black),
+                          ),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(type, style: const TextStyle(fontWeight: FontWeight.bold)),
-                          Text(status, style: const TextStyle(color: AppColors.success)),
+                          Text(
+                            type,
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            status,
+                            style: const TextStyle(color: AppColors.success),
+                          ),
                         ],
                       ),
                       const SizedBox(height: 20),
-                      const Text("Card", style: TextStyle(color: AppColors.black)),
-                      Text(card, style: const TextStyle(fontWeight: FontWeight.bold)),
+                      const Text(
+                        "Card",
+                        style: TextStyle(color: AppColors.black),
+                      ),
+                      Text(
+                        card,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
                       const SizedBox(height: 20),
                       Align(
                         alignment: Alignment.bottomRight,
-                        child: Text(date, style: const TextStyle(color: AppColors.black, fontSize: 12)),
+                        child: Text(
+                          date,
+                          style: const TextStyle(
+                            color: AppColors.black,
+                            fontSize: 12,
+                          ),
+                        ),
                       ),
                     ],
                   ),

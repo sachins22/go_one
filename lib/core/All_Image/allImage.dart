@@ -17,5 +17,9 @@ class AllImages {
   static const String debitCard = 'assets/images/debitcard.png';
   static const String NetBanking = 'assets/images/net-banking.png';
   static const String successScreen = 'assets/images/success.svg';
+  static const String earnBox = 'assets/images/earnBox.svg';
+  static const String earntarget = 'assets/images/earntarget.svg';
+  static const String earnCost = 'assets/images/earncost.svg';
+  static const String destination = 'assets/images/destination.svg';
 
 }

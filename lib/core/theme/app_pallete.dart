@@ -20,7 +20,7 @@ class AppColors {
 
 
   // login page color
-  static const Color redColors = Colors.redAccent;
+  static const Color redColors = Colors.red;
   static const Color liteYellowColors = Color(0xFFFFDD7D);
 
   static const Color tealColors = Colors.teal;

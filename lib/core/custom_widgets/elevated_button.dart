@@ -37,7 +37,7 @@ class AppElevatedButton extends StatelessWidget {
           ),
         ),
         child: isLoading
-            ? const CircularProgressIndicator(color: Colors.white)
+            ? const CircularProgressIndicator(color: AppColors.whiteColor)
             : Text(
                 text,
                 style: TextStyle(

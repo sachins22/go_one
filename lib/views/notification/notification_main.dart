@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_one_app/core/theme/app_pallete.dart';
 
-class NotificationScreen extends StatelessWidget {
+class NotificationMainScreen extends StatelessWidget {
   final List<Map<String, String>> notifications = [
     {
       'orderId': '#442123456',
@@ -25,7 +25,7 @@ class NotificationScreen extends StatelessWidget {
     return Scaffold(
        backgroundColor:AppPallete.backgroundColor,
       appBar: AppBar(
-        title: const Text('Notifications Area'),
+        title: const Text('Notifications'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
           onPressed: () => Navigator.of(context).pop(),

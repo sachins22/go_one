@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:go_one_app/core/All_Image/allImage.dart';
 import 'package:go_one_app/core/custom_widgets/elevated_button.dart';
 import 'package:go_one_app/core/theme/app_pallete.dart';
+import 'package:go_one_app/views/notification/notification_main.dart';
+import 'package:go_one_app/views/order/widgets/order_history.dart';
+import 'package:go_one_app/views/order/widgets/oreder_canceled_details.dart';
+
+
 
 class OrderPages extends StatefulWidget {
   const OrderPages({super.key});
@@ -27,29 +32,39 @@ class _OrderPagesState extends State<OrderPages> {
           children: [
             Image.asset(AllImages.logo, height: 40),
             const Spacer(),
-            Stack(
-              children: [
-                const Icon(
-                  Icons.notifications_none,
-                  color: AppColors.whiteColor,
-                  size: 28,
-                ),
-                Positioned(
-                  right: 0,
-                  top: 0,
-                  child: CircleAvatar(
-                    radius: 8,
-                    backgroundColor: AppColors.buttonPrimary,
-                    child: const Text(
-                      "2",
-                      style: TextStyle(
-                        color: AppColors.whiteColor,
-                        fontSize: 10,
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NotificationMainScreen(),
+                  ),
+                );
+              },
+              child: Stack(
+                children: [
+                  const Icon(
+                    Icons.notifications_none,
+                    color: AppColors.whiteColor,
+                    size: 28,
+                  ),
+                  Positioned(
+                    right: 0,
+                    top: 0,
+                    child: CircleAvatar(
+                      radius: 8,
+                      backgroundColor: AppColors.buttonPrimary,
+                      child: const Text(
+                        "2",
+                        style: TextStyle(
+                          color: AppColors.whiteColor,
+                          fontSize: 10,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),
@@ -445,7 +460,14 @@ class _OrderPagesState extends State<OrderPages> {
                       text: "Accept",
                       buttonWidth: 100,
                       buttonHeight: 30,
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => OrderHistoryPages(),
+                          ),
+                        );
+                      },
                       textColor: AppColors.black,
                       backgroundColor: AppColors.NeworderButtonColor,
                     ),
